@@ -87,7 +87,7 @@ func TestGetTokenError(t *testing.T) {
 	assert.Equal(t, 51, response.ResultCode)
 }
 
-func TestSearchUserStatus(t *testing.T) {
+func TestVerifySearch(t *testing.T) {
 	// Context: With all the required parameters
 	helperMockResponse(t, "./test_fixtures/get_token_response.json", "https://api.nexmo.com/sdk/token/json", true)
 	helperMockResponse(t, "./test_fixtures/search_user_status_response.json", "https://api.nexmo.com/sdk/verify/search/json", true)
@@ -99,7 +99,7 @@ func TestSearchUserStatus(t *testing.T) {
 	nexmo := NewClient(appId, sharedSecret)
 
 	// Context: When calling GetToken(parameters)
-	response, err := nexmo.SearchUserStatus(map[string]string{
+	response, err := nexmo.VerifySearch(map[string]string{
 		"device_id":         deviceId,
 		"source_ip_address": "127.0.0.1",
 		"number":            "+521111111111",
@@ -112,7 +112,7 @@ func TestSearchUserStatus(t *testing.T) {
 	assert.Equal(t, "unknown", response.UserStatus)
 }
 
-func TestSearchUserStatusError(t *testing.T) {
+func TestVerifySearchError(t *testing.T) {
 	// Context: With all the required parameters
 	helperMockResponse(t, "./test_fixtures/get_token_response.json", "https://api.nexmo.com/sdk/token/json", true)
 	helperMockResponse(t, "./test_fixtures/search_user_status_response.json", "https://api.nexmo.com/sdk/verify/search/json", false)
@@ -124,7 +124,7 @@ func TestSearchUserStatusError(t *testing.T) {
 	nexmo := NewClient(appId, sharedSecret)
 
 	// Context: When calling GetToken(parameters)
-	response, err := nexmo.SearchUserStatus(map[string]string{
+	response, err := nexmo.VerifySearch(map[string]string{
 		"device_id":         deviceId,
 		"source_ip_address": "127.0.0.1",
 	})
@@ -134,7 +134,7 @@ func TestSearchUserStatusError(t *testing.T) {
 	assert.Equal(t, 53, response.ResultCode)
 }
 
-func TestSearchUserStatusTokenError(t *testing.T) {
+func TestVerifySearchTokenError(t *testing.T) {
 	// Context: With all the required parameters
 	helperMockResponse(t, "./test_fixtures/get_token_response.json", "https://api.nexmo.com/sdk/token/json", false)
 	helperMockResponse(t, "./test_fixtures/search_user_status_response.json", "https://api.nexmo.com/sdk/verify/search/json", false)
@@ -146,7 +146,7 @@ func TestSearchUserStatusTokenError(t *testing.T) {
 	nexmo := NewClient(appId, sharedSecret)
 
 	// Context: When calling GetToken(parameters)
-	_, err := nexmo.SearchUserStatus(map[string]string{
+	_, err := nexmo.VerifySearch(map[string]string{
 		"device_id":         deviceId,
 		"source_ip_address": "127.0.0.1",
 	})

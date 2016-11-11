@@ -16,8 +16,8 @@ import (
 )
 
 var endpointUrls = map[string]string{
-	"getToken":         "https://api.nexmo.com/sdk/token/json",
-	"searchUserStatus": "https://api.nexmo.com/sdk/verify/search/json",
+	"getToken":     "https://api.nexmo.com/sdk/token/json",
+	"verifySearch": "https://api.nexmo.com/sdk/verify/search/json",
 }
 
 var tokenReplaceRegexp, _ = regexp.Compile("[&,=]")
@@ -47,7 +47,7 @@ type BaseResponse struct {
 	Timestamp     string `json:"timestamp"`
 }
 
-type SearchUserStatusResponse struct {
+type VerifySearchResponse struct {
 	BaseResponse
 	UserStatus string `json:"user_status"`
 }
@@ -57,10 +57,10 @@ type GetTokenResponse struct {
 	Token string `json:"token"`
 }
 
-// SearchUserStatus accepts a map[string]string with device_id, source_ip_address, number and country (optional)
-// It returns a SearchUserStatusResponse struct
-func (self *Client) SearchUserStatus(params map[string]string) (SearchUserStatusResponse, error) {
-	var respObj SearchUserStatusResponse
+// VerifySearch accepts a map[string]string with device_id, source_ip_address, number and country (optional)
+// It returns a VerifySearchResponse struct
+func (self *Client) VerifySearch(params map[string]string) (VerifySearchResponse, error) {
+	var respObj VerifySearchResponse
 
 	tokenResponse, err := self.GetToken(map[string]string{
 		"device_id":         params["device_id"],
@@ -76,7 +76,7 @@ func (self *Client) SearchUserStatus(params map[string]string) (SearchUserStatus
 
 	params["token"] = tokenResponse.Token
 
-	req, err := self.generateRequest(params, endpointUrls["searchUserStatus"])
+	req, err := self.generateRequest(params, endpointUrls["verifySearch"])
 	if err != nil {
 		return respObj, err
 	}
