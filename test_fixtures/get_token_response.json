@@ -1,0 +1,23 @@
+{
+  "success": {
+    "body": {
+      "result_code": 0,
+      "result_message": "OK",
+      "timestamp": "1478816694",
+      "token": "8SOV4HYfD1mos69gLdm6woXiut/+uhtMETtUn8gOtz4VyrItkbK8urup53zDBEhc4lglrsqreElHxWPt7ERX7EiMDU7Enmt+7U8jHYof1j9ez684/pEGfKWv2G3nmocq3HILc6qZycRju7ayvA/mvFhKp7VxZhQaaBu+QRlVN3K4sUpJioC1K+XDJHwxdBsDBqcJUe+P8Ww9TOTGyk3CJsjuspwWDSgX6I4VikNjc4g="
+    },
+    "header": {
+      "X-NEXMO-RESPONSE-SIGNATURE": "ad3b979fc8b460705bf0b1207cc8fa4a"
+    }
+  },
+  "error": {
+    "body": {
+      "result_code": 51,
+      "result_message": "Missing or Invalid 'source_ip_address'",
+      "timestamp": "1478816694"
+    },
+    "header": {
+      "X-NEXMO-RESPONSE-SIGNATURE": "0c0e8e71825c577b3456d91066da2207"
+    }
+  }
+}

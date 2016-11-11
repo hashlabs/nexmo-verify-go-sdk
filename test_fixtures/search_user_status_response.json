@@ -1,0 +1,23 @@
+{
+  "success": {
+    "body": {
+      "result_code": 0,
+      "result_message": "OK",
+      "timestamp": "1478823952",
+      "user_status": "unknown"
+    },
+    "header": {
+      "X-NEXMO-RESPONSE-SIGNATURE": "b3aff99f795cab71e813c190bae1f4a5"
+    }
+  },
+  "error": {
+    "body": {
+      "result_code": 53,
+      "result_message": "Missing or Invalid 'number'",
+      "timestamp": "1478823979"
+    },
+    "header": {
+      "X-NEXMO-RESPONSE-SIGNATURE": "e003ca0e8420751d8df3d8af6a8cf6e7"
+    }
+  }
+}
