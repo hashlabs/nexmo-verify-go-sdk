@@ -7,7 +7,7 @@ This implementation mimics the [Nexmo Android SDK](https://github.com/Nexmo/veri
 ## Usage
 
 ```go
-import "github.com/orlando/nexmo"
+import nexmo "github.com/hashlabs/nexmo-verify-go-sdk"
 
 client := nexmo.NewClient(<appId>, <sharedSecret>)
 
